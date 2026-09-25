@@ -1,0 +1,4 @@
+<menu id="ResetConfirmMenu" title="@Strings.ConfirmResetTitle" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://developer.garmin.com/downloads/connect-iq/resources.xsd">
+    <menu-item id="item_confirm_reset" label="@Strings.MenuConfirmReset" />
+    <menu-item id="item_cancel_reset" label="@Strings.MenuCancel" />
+</menu>

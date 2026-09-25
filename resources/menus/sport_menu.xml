@@ -1,0 +1,15 @@
+<menu2 id="SportMenu" title="@Strings.SportMenuTitle" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://developer.garmin.com/downloads/connect-iq/resources.xsd">
+    <menu-item id="sport_none" label="@Strings.SportNone" />
+    <menu-item id="sport_soccer" label="@Strings.SportSoccer" />
+    <menu-item id="sport_basketball" label="@Strings.SportBasketball" />
+    <menu-item id="sport_volleyball" label="@Strings.SportVolleyball" />
+    <menu-item id="sport_hockey" label="@Strings.SportHockey" />
+    <menu-item id="sport_american_football" label="@Strings.SportAmericanFootball" />
+    <menu-item id="sport_rugby" label="@Strings.SportRugby" />
+    <menu-item id="sport_lacrosse" label="@Strings.SportLacrosse" />
+    <menu-item id="sport_baseball" label="@Strings.SportBaseball" />
+    <menu-item id="sport_racket" label="@Strings.SportRacket" />
+    <menu-item id="sport_team_sport" label="@Strings.SportTeamSport" />
+    <menu-item id="sport_running" label="@Strings.SportRunning" />
+    <menu-item id="sport_other" label="@Strings.SportOther" />
+</menu2>

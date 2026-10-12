@@ -66,6 +66,7 @@
             <iq:product id="fenixe"/>
             <iq:product id="enduro"/>
             <iq:product id="enduro3"/>
+            <iq:product id="enduro4"/>
 
             <!-- epix -->
             <iq:product id="epix2"/>
@@ -143,6 +144,8 @@
 
             <!-- Approach (golf) -->
             <iq:product id="approachs50"/>
+            <iq:product id="approachs7243mm"/>
+            <iq:product id="approachs7247mm"/>
             <iq:product id="approachs62"/>
             <iq:product id="approachs7042mm"/>
             <iq:product id="approachs7047mm"/>
@@ -185,6 +188,7 @@
             <iq:product id="gpsmaph1"/>
             <iq:product id="montana7xx"/>
             <iq:product id="oregon7xx"/>
+            <iq:product id="rino7xx"/>
         </iq:products>
 
         <iq:permissions>

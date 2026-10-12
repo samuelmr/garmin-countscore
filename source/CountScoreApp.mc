@@ -104,6 +104,10 @@ class CountScoreApp extends Application.AppBase {
         return Properties.getValue("TeamBColor") as Number;
     }
 
+    function getTouchMode() as Number {
+        return Properties.getValue("TouchMode") as Number;
+    }
+
     // Called once, right after the sport picker closes. Does nothing if a
     // recording is already running or the device doesn't support it.
     function startRecording(sport as Activity.Sport) as Void {
@@ -150,6 +154,11 @@ class CountScoreApp extends Application.AppBase {
 // chosen and when nothing has been chosen yet (a first-ever launch), since
 // both should pre-focus the menu on :sport_none.
 const NO_SPORT_CHOICE = -1;
+
+// TouchMode property values (see CountScoreDelegate's onTap()/onSwipe()).
+const TOUCH_MODE_SWIPE_UNDO = 0;
+const TOUCH_MODE_SWIPE_SCORE = 1;
+const TOUCH_MODE_OFF = 2;
 
 function getApp() as CountScoreApp {
     return Application.getApp() as CountScoreApp;

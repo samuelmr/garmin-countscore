@@ -34,15 +34,26 @@ import Toybox.WatchUi;
 //   - fenix-style watches have a 5th physical button, LIGHT, but it isn't
 //     exposed as a distinguishable input by Connect IQ at all (confirmed
 //     on a real fenix 5 Plus), so it isn't used here.
-// Touch, where available:
-//   - Tapping the left/right half of the screen scores that team.
-//   - Swiping left/right *undoes* a point for that team instead (an
-//     accidental tap or a disqualified goal) -- there's no button
-//     equivalent; a button-only watch has to reset and replay the score by
-//     hand if it needs correcting.
+// Touch, where available, depends on the "Touch screen" setting
+// (TouchMode -- see the app's getTouchMode()):
+//   - Tapping the left/right half of the screen scores that team,
+//     regardless of the setting (it only affects swiping).
+//   - TOUCH_MODE_SWIPE_UNDO (default): swiping left/right *undoes* a point
+//     for that team instead of adding one (an accidental tap or a
+//     disqualified goal) -- there's no button equivalent; a button-only
+//     watch has to reset and replay the score by hand if it needs
+//     correcting.
+//   - TOUCH_MODE_SWIPE_SCORE: swiping left/right adds a point instead,
+//     same as tapping -- there's no undo at all in this mode, touch or
+//     otherwise.
+//   - TOUCH_MODE_OFF: tapping and all swiping is ignored. Reset/Exit stay
+//     reachable via the hold-to-menu gesture below, which is button-based,
+//     not touch-based.
 //   - Swiping up asks to reset; swiping down exits -- the same actions as
 //     the DOWN/BACK buttons on a four-button watch, since a two-button
 //     touch watch has no physical DOWN/BACK-equivalent swipe otherwise.
+//     Unaffected by TouchMode's undo/score choice, only by turning touch
+//     off entirely.
 class CountScoreDelegate extends WatchUi.InputDelegate {
 
     // Whether this watch has dedicated UP/DOWN buttons, read once from the
@@ -83,6 +94,9 @@ class CountScoreDelegate extends WatchUi.InputDelegate {
     }
 
     function onTap(clickEvent as ClickEvent) as Boolean {
+        if (getApp().getTouchMode() == TOUCH_MODE_OFF) {
+            return InputDelegate.onTap(clickEvent);
+        }
         var coordinates = clickEvent.getCoordinates();
         var width = System.getDeviceSettings().screenWidth;
         if (coordinates[0] < (width / 2)) {
@@ -94,11 +108,24 @@ class CountScoreDelegate extends WatchUi.InputDelegate {
     }
 
     function onSwipe(swipeEvent as SwipeEvent) as Boolean {
+        var touchMode = getApp().getTouchMode();
+        if (touchMode == TOUCH_MODE_OFF) {
+            return InputDelegate.onSwipe(swipeEvent);
+        }
+
         var direction = swipeEvent.getDirection();
         if (direction == WatchUi.SWIPE_LEFT) {
-            getApp().decrementA();
+            if (touchMode == TOUCH_MODE_SWIPE_SCORE) {
+                getApp().incrementA();
+            } else {
+                getApp().decrementA();
+            }
         } else if (direction == WatchUi.SWIPE_RIGHT) {
-            getApp().decrementB();
+            if (touchMode == TOUCH_MODE_SWIPE_SCORE) {
+                getApp().incrementB();
+            } else {
+                getApp().decrementB();
+            }
         } else if (direction == WatchUi.SWIPE_UP) {
             handleNextPage();
         } else if (direction == WatchUi.SWIPE_DOWN) {

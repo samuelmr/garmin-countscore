@@ -24,6 +24,10 @@
 
     <string id="SettingTeamAColorTitle">Left team color</string>
     <string id="SettingTeamBColorTitle">Right team color</string>
+    <string id="SettingTouchModeTitle">Touch screen</string>
+    <string id="TouchModeSwipeUndo">Swipe to undo</string>
+    <string id="TouchModeSwipeScore">Swipe to score</string>
+    <string id="TouchModeOff">Touch screen off</string>
 
     <string id="ColorBlack">Black</string>
     <string id="ColorWhite">White</string>

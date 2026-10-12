@@ -33,4 +33,11 @@
             <listEntry value="0xFF1493">@Strings.ColorPink</listEntry>
         </settingConfig>
     </setting>
+    <setting propertyKey="@Properties.TouchMode" title="@Strings.SettingTouchModeTitle">
+        <settingConfig type="list">
+            <listEntry value="0">@Strings.TouchModeSwipeUndo</listEntry>
+            <listEntry value="1">@Strings.TouchModeSwipeScore</listEntry>
+            <listEntry value="2">@Strings.TouchModeOff</listEntry>
+        </settingConfig>
+    </setting>
 </settings>

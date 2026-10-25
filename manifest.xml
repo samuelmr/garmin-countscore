@@ -127,6 +127,7 @@
             <!-- MARQ -->
             <iq:product id="marq2"/>
             <iq:product id="marq2aviator"/>
+            <iq:product id="marq3"/>
             <iq:product id="marqadventurer"/>
             <iq:product id="marqathlete"/>
             <iq:product id="marqaviator"/>
@@ -166,6 +167,7 @@
             <iq:product id="edge1030plus"/>
             <iq:product id="edge1040"/>
             <iq:product id="edge1050"/>
+            <iq:product id="edge1060"/>
             <iq:product id="edge520plus"/>
             <iq:product id="edge530"/>
             <iq:product id="edge540"/>
